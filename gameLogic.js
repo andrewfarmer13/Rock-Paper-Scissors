@@ -23,7 +23,6 @@ function getHumanChoice(){
 function playRound(){
     let compChoice = getComputerChoice();
     //console.log(getComputerChoice());
-
     let humanChoice = getHumanChoice();
 
     if((compChoice === 1) && (humanChoice === 3)){
@@ -47,7 +46,9 @@ function playRound(){
     };
 }
 
-playRound();
+for(i = 0; i < 5; i++){
+    playRound();
+}
 console.log("Human Score: " + humanScore);
 console.log("Computer Score: " + computerScore);
 
