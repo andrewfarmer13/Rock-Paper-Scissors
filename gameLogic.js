@@ -3,8 +3,16 @@ let computerScore = 0;
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*3)+1;
-   
-    return choice;
+    let choiceStr = "Computer choice: ";
+    if (choice === 1){
+        choiceStr = choiceStr.concat("Rock");
+    }else if (choice === 2){
+        choiceStr = choiceStr.concat("Paper");
+    }else{
+        choiceStr = choiceStr.concat("Scissors");
+    }
+    console.log(choiceStr);
+    return choice;  
 }
 
 function getHumanChoice(){
@@ -14,7 +22,7 @@ function getHumanChoice(){
 
 function playRound(){
     let compChoice = getComputerChoice();
-    console.log(getComputerChoice());
+    //console.log(getComputerChoice());
 
     let humanChoice = getHumanChoice();
 
