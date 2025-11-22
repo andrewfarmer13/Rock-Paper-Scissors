@@ -1,4 +1,4 @@
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
 const buttons = document.querySelectorAll("button");
 
@@ -18,53 +18,47 @@ function getComputerChoice(){
     return choiceStr;  
 }
 
-function getHumanChoice(){
-    let humanChoice = prompt("Rock, Paper, or Scissors!");
-    humanChoice = humanChoice.toLowerCase();
-    return humanChoice;
-}
 
-function playRound(){
+function playRound(playerChoice){
     let compChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-    console.log("human choice: " + humanChoice);
+    console.log("human choice: " + playerChoice);
     console.log("compChoice: " + compChoice);
 
-    if((compChoice === "rock") && (humanChoice === "scissors")){
+    if((compChoice === "rock") && (playerChoice === "scissors")){
         console.log("Computer choose Rock. Rock beats Scissors. Computer Wins!");
         computerScore++;
-    }else if((compChoice === "paper") &&(humanChoice === "rock")){
+    }else if((compChoice === "paper") &&(playerChoice === "rock")){
         console.log("Computer choose Paper. Paper beats Rock. Computer Wins!");
         computerScore++;
-    }else if((compChoice === "scissors") && (humanChoice === "paper")){
+    }else if((compChoice === "scissors") && (playerChoice === "paper")){
         console.log("Computer choose Scissors. Scissors beats Paper. Computer Wins!");
         computerScore++;
-    }else if((humanChoice === "rock")&&(compChoice === "scissors")){
+    }else if((playerChoice === "rock")&&(compChoice === "scissors")){
         console.log("Computer choose Scissors. Rock beasts Scissors. You Win!");
-        humanScore++;
-    }else if((humanChoice === "paper")&& (compChoice === "rock")){
+        playerScore++;
+    }else if((playerChoice === "paper")&& (compChoice === "rock")){
         console.log("Computer choose Rock. Paper beats Rock. You Win!");
-        humanScore++;
-    }else if((humanChoice === "scissors") && (compChoice === "paper")){
+        playerScore++;
+    }else if((playerChoice === "scissors") && (compChoice === "paper")){
         console.log("Computer choose Paper. Scissors beats Paper. You Win!");
-        humanScore++;
+        playerScore++;
     }else{
         console.log("Draw");
     }
+
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+
 }
 
-/*buttons.forEach((button) => {
+buttons.forEach((button) => {
 
     button.addEventListener("click", () => {
-       playRound()
+       playRound(button.className)
     })
-});*/
+});
 
 
-playRound();
-console.log("Human Score: " + humanScore);
-console.log("Computer Score: " + computerScore);
-
-//console.log(getHumanChoice());
+//console.log(getplayerChoice());
 
 //console.log(getComputerChoice());
