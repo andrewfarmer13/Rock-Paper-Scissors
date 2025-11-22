@@ -1,5 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
+const buttons = document.querySelectorAll("button");
+
 
 function getComputerChoice(){
     let choice = Math.floor(Math.random()*3)+1;
@@ -46,7 +48,15 @@ function playRound(){
     };
 }
 
-playRound();
+buttons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+       console.log(button.className);
+    })
+});
+
+
+//playRound();
 console.log("Human Score: " + humanScore);
 console.log("Computer Score: " + computerScore);
 
