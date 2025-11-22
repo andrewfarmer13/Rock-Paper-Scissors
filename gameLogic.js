@@ -1,6 +1,10 @@
 let playerScore = 0;
 let computerScore = 0;
 const buttons = document.querySelectorAll("button");
+const newButton = document.querySelector("#new-game-button");
+const computerScoreDiv = document.getElementsByClassName("computer-score")[0];
+const playerScoreDiv = document.getElementsByClassName("player-score")[0];
+const computerChoiceDiv = document.getElementsByClassName("computer-choice")[0];
 
 
 function getComputerChoice(){
@@ -15,15 +19,11 @@ function getComputerChoice(){
         choiceStr = choiceStr.concat("scissors");
     }
    // console.log(choiceStr);
+
+
+   computerChoiceDiv.textContent = "Computer Choice: ".concat(choiceStr);
+
     return choiceStr;  
-}
-
-function getPlayerScore(){
-    return playerScore;
-}
-
-function getComputerScore(){
-    return computerScore;
 }
 
 
@@ -54,16 +54,29 @@ function playRound(playerChoice){
         console.log("Draw");
     }
 
-    console.log("Player Score: " + playerScore);
-    console.log("Computer Score: " + computerScore);
+    
+    playerScoreDiv.textContent = `Player Score: ${playerScore}`;
+
+    
+    computerScoreDiv.textContent = `Computer Score: ${computerScore}`;
+
 
 }
 
 buttons.forEach((button) => {
 
     button.addEventListener("click", () => {
-       playRound(button.className)
+        playRound(button.className)
     })
+});
+
+newButton.addEventListener("click", ()=> {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreDiv.textContent = `Player Score: ${playerScore}`;
+    computerScoreDiv.textContent = `Computer Score: ${computerScore}`;
+    computerChoiceDiv.textContent = "Computer Choice: ";
+
 });
 
 
