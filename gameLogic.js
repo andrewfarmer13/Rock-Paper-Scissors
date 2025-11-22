@@ -18,6 +18,14 @@ function getComputerChoice(){
     return choiceStr;  
 }
 
+function getPlayerScore(){
+    return playerScore;
+}
+
+function getComputerScore(){
+    return computerScore;
+}
+
 
 function playRound(playerChoice){
     let compChoice = getComputerChoice();
